@@ -255,3 +255,16 @@ div > label {
 .warning.active{
   opacity: 1;
 }
+
+footer p{
+  text-align: center;
+}
+
+footer p:nth-oftype(1){
+  margin-bottom: 0;
+}
+
+footer p, 
+footer a{ 
+  color: #4c4c4c;
+}
