@@ -51,8 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const li = createElement('li');
     appendToLI('span', 'textContent', text);
-    appendToLI('label', 'textContent', 'Confirm')
-      .appendChild(createElement('input', 'type', 'checkbox'));
+    const label = appendToLI('label', 'textContent', 'Confirm')
+    label.appendChild(createElement('input', 'type', 'checkbox'));
+    const select = createElement('select');
+    const option_coming = createElement('option','textContent','Coming');
+    const option_notcoming = createElement('option','textContent','Not Coming');
+    select.appendChild(option_coming);
+    select.appendChild(option_notcoming);
+    label.appendChild(select);
     appendToLI('button', 'textContent', 'edit');
     appendToLI('button', 'textContent', 'remove');
 

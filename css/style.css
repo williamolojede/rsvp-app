@@ -137,7 +137,9 @@ div > label {
   transition: 0.4s;
   color: rgba(88, 183, 205, 1);
 }
-
+.main{
+  position: relative;
+}
 /* ================================= 
   Media Queries
 ==================================== */
@@ -267,4 +269,8 @@ footer p:nth-oftype(1){
 footer p, 
 footer a{ 
   color: #4c4c4c;
+}
+
+select{
+  margin-left: 10px;
 }
