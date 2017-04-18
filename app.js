@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const input = document.querySelector('input');
   const invitedList_UL = document.querySelector('#invitedList');
   const mainDiv = document.querySelector('.main');
+  const warningP = document.querySelector('.warning')
+
+  const invitees = [];
 
   const div = document.createElement('div')
   const filterLabel = document.createElement('label')
@@ -33,15 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  function createElement(elementName, property, value) {
+    const element = document.createElement(elementName);
+    element[property] = value;
+    return element;
+  }
 
   function createLI(text) {
-
-    function createElement(elementName, property, value) {
-      const element = document.createElement(elementName);
-      element[property] = value;
-      return element;
-    }
-
     function appendToLI(elementName, property, value) {
       const element = createElement(elementName, property, value);
       li.appendChild(element);
@@ -60,10 +61,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const text = input.value;
-    input.value = '';
-    const li = createLI(text);
-    invitedList_UL.appendChild(li);
+    // removes class each time there's submission,
+    // so that on each theres a new warning shown.
+    warningP.classList.remove('active');
+
+    // removes whitespace from both sides of user input
+    const text = input.value.trim().toUpperCase();
+
+    // checks if user entered whitespaces
+    if (text === '') {
+      // activate warining message
+      if(!warningP.classList.contains('active')){
+        warningP.textContent = `Please enter an invitee's name.`;
+        warningP.classList.add('active');
+      }
+
+    // check if the invitee is already on the list, uses es7 .contains
+    } else if (invitees.includes(text)) {
+      if(!warningP.classList.contains('active')){
+        warningP.textContent = `${text} already exist on your list.`;
+        warningP.classList.add('active');
+        input.value = '';
+      }
+    } else {
+      // used to store invitees name for form validation
+      invitees.push(text);
+      input.value = '';
+      const li = createLI(text);
+      invitedList_UL.appendChild(li);
+    }
   });
 
   invitedList_UL.addEventListener('change', e => {

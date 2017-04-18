@@ -1,13 +1,14 @@
 ## User Story
 - [x] I can add invitee to the list.
-- [ ] I can confirm if the invitee will come.
+- [ ] I can confirm if an invitee will come.
 - [ ] I can edit invitee's name
 - [ ] I can remove an invitee.
-- [ ] I can reload the page and still my list.
+- [ ] I can reload the page and still see my list.
+- [ ] I can filter invitees that has responded.
 
 ## Features
-1. Input Form with submit button (**Ensure form is validated**).
-2. Confirmation checkbox.
-3. Edit button.
-4. Remove button.
-5. Save button.
+- [x] Input Form with submit button (**Ensure form is validated(Reject Duplicate names)**).
+- [ ] Confirmation checkbox(coming/not coming confirm/confirmed).
+- [x] Edit button.
+- [x] Remove button.
+- [x] Save button.
